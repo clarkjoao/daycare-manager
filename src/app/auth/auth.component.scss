@@ -1,0 +1,32 @@
+.container-auth {
+  background-color: #EEEEEE;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background: #FFFFFF;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.295045);
+  border-radius: 10px;
+  padding: 3.2em;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  margin: auto;
+  max-width: 646px;
+}
+
+.button-group {
+  margin-top: 10px;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: space-between;
+
+  button {
+    background: #0290BB;
+    color: #FFFFFF
+  }
+}
