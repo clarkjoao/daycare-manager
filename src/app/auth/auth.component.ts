@@ -6,16 +6,16 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 
 //Interface
-import { IRegister } from './auth.interface.model';
+import { IForm } from './auth.interface.model';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-  typeFromRegister: boolean = false;
-  formRegister: IRegister = {
-    name: 'teste',
+  registerMode: boolean = false;
+  form: IForm = {
+    name: '',
     email: '',
     password: '',
   };
@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    if (this.typeFromRegister) {
+    if (this.registerMode) {
       this.registerAction();
     } else {
       this.loginAction();
@@ -37,12 +37,12 @@ export class AuthComponent implements OnInit {
   async registerAction() {
     await this.auth
       .create({
-        email: this.formRegister.email,
-        password: this.formRegister.password,
+        email: this.form.email,
+        password: this.form.password,
       })
       .then(async (data: any) => {
         await this.api
-          .createDoc('teatchers', data.user.uid, this.formRegister)
+          .createDoc('teatchers', data.user.uid, this.form)
           .then(() => {
             setTimeout(() => {
               this.router.navigate(['/dashboard']);
@@ -56,7 +56,7 @@ export class AuthComponent implements OnInit {
   }
 
   async loginAction() {
-    this.auth.login(this.formRegister, (data) => {
+    this.auth.login(this.form, (data) => {
       if (data.code && data.message) {
         console.log('Err', data);
         return alert(data.message);

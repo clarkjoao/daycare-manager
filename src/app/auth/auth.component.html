@@ -3,25 +3,25 @@
     <div class="form-group">
       <h1>Creche da Tia Ana</h1>
     </div>
-    <div *ngIf="typeFromRegister" class="form-group">
+    <div *ngIf="registerMode" class="form-group">
       <label>Nome Completo</label>
-      <input [(ngModel)]="formRegister.email" type="email" name="email" class="form-control">
+      <input [(ngModel)]="form.email" type="email" name="email" class="form-control">
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input [(ngModel)]="formRegister.email" type="email" name="email" class="form-control">
+      <input [(ngModel)]="form.email" type="email" name="email" class="form-control">
     </div>
     <div class="form-group">
       <label>Senha</label>
-      <input [(ngModel)]="formRegister.password" type="password" name="password" class="form-control">
+      <input [(ngModel)]="form.password" type="password" name="password" class="form-control">
     </div>
-    <div *ngIf="!typeFromRegister" class="form-group button-group">
-      <a (click)="typeFromRegister = true">Registrar</a>
+    <div *ngIf="!registerMode" class="form-group button-group">
+      <a (click)="registerMode = true">Registrar</a>
       <button type="submit" class="btn">Login</button>
     </div>
-    <div *ngIf="typeFromRegister" class="form-group button-group">
+    <div *ngIf="registerMode" class="form-group button-group">
       <button type="submit" class="btn">Registrar</button>
-      <a (click)="typeFromRegister = false">Fazer Login</a>
+      <a (click)="registerMode = false">Fazer Login</a>
     </div>
   </form>
 </div>

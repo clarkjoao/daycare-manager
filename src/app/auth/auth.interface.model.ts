@@ -1,5 +1,5 @@
-export interface IRegister {
-  name: string;
+export interface IForm {
+  name?: string;
   email: string;
   password: string;
 }
