@@ -1,7 +1,14 @@
+<mat-toolbar class="toolbar">
+  <span>Minha Creche</span>
+</mat-toolbar>
+
 <div class="container-auth">
   <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form">
-    <div class="form-group">
-      <h1>Creche da Tia Ana</h1>
+    <div *ngIf="!registerMode" class="form-group">
+      <h1>Faça seu Login</h1>
+    </div>
+    <div *ngIf="registerMode" class="form-group">
+      <h1>Faça seu Registro</h1>
     </div>
     <div *ngIf="registerMode" class="form-group">
       <label>Nome Completo</label>
@@ -16,12 +23,12 @@
       <input [(ngModel)]="form.password" type="password" name="password" class="form-control">
     </div>
     <div *ngIf="!registerMode" class="form-group button-group">
-      <a (click)="registerMode = true">Registrar</a>
+      <a (click)="registerMode = true">Registrar-se</a>
       <button type="submit" class="btn">Login</button>
     </div>
     <div *ngIf="registerMode" class="form-group button-group">
       <button type="submit" class="btn">Registrar</button>
-      <a (click)="registerMode = false">Fazer Login</a>
+      <a (click)="registerMode = false">Logar-se</a>
     </div>
   </form>
 </div>

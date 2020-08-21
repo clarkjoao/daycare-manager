@@ -5,10 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [MenuComponent],
   imports: [CommonModule],
-  exports: [FormsModule, MatFormFieldModule, MatInputModule, MatCardModule],
+  exports: [
+    FormsModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MenuComponent,
+    MatToolbarModule,
+  ],
 })
 export class SharedModule {}

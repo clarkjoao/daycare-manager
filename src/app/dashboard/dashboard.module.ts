@@ -8,10 +8,13 @@ import { StudentsComponent } from './students/students.component';
 
 //Route
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
 
+// Shared
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
-  declarations: [HomeComponent, StudentsComponent],
-  imports: [CommonModule, DashboardRoutingModule],
+  declarations: [HomeComponent, StudentsComponent, DashboardComponent],
+  imports: [CommonModule, DashboardRoutingModule, SharedModule],
   exports: [RouterModule],
 })
 export class DashboardModule {}

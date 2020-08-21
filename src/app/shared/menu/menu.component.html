@@ -1,0 +1,14 @@
+<nav>
+  <li *ngFor="let menu of menus">
+    <a [routerLink]="['/' + menu.parent, menu.path]" *ngIf="!menu.children && menu.path !== ''">{{ menu.label }}</a>
+    <a [routerLink]="['/' + menu.parent]" *ngIf="!menu.children && menu.path === ''">{{ menu.label }}</a>
+
+    <a href="javascript:;" (click)="menu.open = !menu.open"
+      *ngIf="menu.children && menu.children.length">{{ menu.label }}</a>
+
+    <ul [ngClass]="{'open': menu.open}" *ngIf="menu.children && menu.children.length">
+      <li *ngFor="let submenu of menu.children"><a
+          [routerLink]="['/' + submenu.parent, submenu.path]">{{ submenu.label }}</a></li>
+    </ul>
+  </li>
+</nav>

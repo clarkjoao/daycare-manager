@@ -1,3 +1,11 @@
+.toolbar {
+  background-color: #1F97DD;
+
+  span {
+    color: #EEEEEE;
+  }
+}
+
 .container-auth {
   background-color: #EEEEEE;
   display: flex;
@@ -5,6 +13,7 @@
   justify-content: center;
   align-items: center;
 }
+
 
 .form {
   background: #FFFFFF;
