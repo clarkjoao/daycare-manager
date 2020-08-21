@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 //Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { AppComponent } from './app.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent],
