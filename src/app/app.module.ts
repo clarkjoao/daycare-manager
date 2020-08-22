@@ -18,9 +18,12 @@ import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthComponent } from './auth/auth.component';
+import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AuthComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    SharedModule,
     BrowserAnimationsModule,
+    DashboardModule,
   ],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent],
