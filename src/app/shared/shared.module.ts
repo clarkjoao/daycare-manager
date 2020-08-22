@@ -7,10 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [],
   imports: [CommonModule],
   exports: [
     FormsModule,
@@ -18,7 +17,6 @@ import { MenuComponent } from './menu/menu.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MenuComponent,
     MatToolbarModule,
   ],
 })
