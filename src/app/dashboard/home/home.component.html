@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="row">
+  <app-card class="col-md-4" description="Estudantes" linkTo="/dashboard/students"></app-card>
+  <app-card class="col-md-4" description="Professores" linkTo="/dashboard/teachers"></app-card>
+  <app-card class="col-md-4" description="Classes" linkTo="/dashboard/classrooms"></app-card>
+</div>
+
+<div class="class_table">
+  <app-classroom-list [classRooms]="classRooms"></app-classroom-list>
+</div>

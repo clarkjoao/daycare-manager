@@ -7,9 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ToolbarComponent],
   imports: [CommonModule],
   exports: [
     FormsModule,
@@ -18,6 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatCardModule,
     MatToolbarModule,
+    MatTableModule,
+    ToolbarComponent,
   ],
 })
 export class SharedModule {}
