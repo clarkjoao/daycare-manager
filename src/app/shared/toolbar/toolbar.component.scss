@@ -1,8 +1,14 @@
 .mat-toolbar {
   padding-left: 2rem;
+  background-color: #1A76D2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 50px;
 
-  a {
-    color: #fff;
-    text-decoration: none;
+  button {
+    background: transparent;
+    border: transparent;
+    color: #FFF
   }
 }

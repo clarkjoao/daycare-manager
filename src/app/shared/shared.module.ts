@@ -15,7 +15,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [ToolbarComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, MatToolbarModule],
   exports: [
     FormsModule,
     MatSidenavModule,

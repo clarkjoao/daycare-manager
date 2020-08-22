@@ -1,1 +1,41 @@
-<p>teachers works!</p>
+<h1>Lista de Professores</h1>
+
+<div class="button-group">
+  <button type="submit" class="btn">Voltar</button>
+  <button type="submit" class="btn">Novo Professor</button>
+</div>
+
+<table mat-table [dataSource]="classRooms" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="startAt">
+    <th mat-header-cell *matHeaderCellDef>Horário de início</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.startAt }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="endAt">
+    <th mat-header-cell *matHeaderCellDef>Horário de término</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.endAt }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="teacher">
+    <th mat-header-cell *matHeaderCellDef>Professor</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.teacher }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="studentQnt">
+    <th mat-header-cell *matHeaderCellDef>Nº Alunos</th>
+    <td mat-cell *matCellDef="let classRoom">{{ classRoom.studentQnt }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
