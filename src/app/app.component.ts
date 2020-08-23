@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'daycare-manager';
+<<<<<<< HEAD
+=======
+
+  constructor(private api: ApiService, private auth: AuthService) {}
+
+  ngOnInit() {}
+>>>>>>> develop
 }
