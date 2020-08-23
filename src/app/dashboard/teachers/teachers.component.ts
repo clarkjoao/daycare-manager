@@ -9,44 +9,30 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./teachers.component.scss'],
 })
 export class TeachersComponent implements OnInit {
-  classRooms = [
-    {
-      id: 1,
-      name: 'Inglês para iniciantes',
-      startAt: '14:00',
-      endAt: '15:40',
-      teacher: 'Joao',
-      studentQnt: 16,
-    },
-    {
-      id: 2,
-      name: 'Álgebra Linear',
-      startAt: '18:00',
-      endAt: '19:40',
-      teacher: 'Cecília',
-      studentQnt: 32,
-    },
-  ];
+  teachers = [];
 
-  columnsToDisplay = [
-    'id',
-    'name',
-    'startAt',
-    'endAt',
-    'teacher',
-    'studentQnt',
-  ];
+  columnsToDisplay = ['id', 'name'];
   constructor(
     private api: ApiService,
     private auth: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
-  onSubmit() {}
+  ngOnInit(): void {
+    this.getTeachers();
+  }
 
   navigate(link: string) {
     console.log(link);
     this.router.navigate([`${link}`]);
+  }
+
+  getTeachers() {
+    this.api
+      .getCollection('teachers')
+      .valueChanges()
+      .subscribe((items: any) => {
+        this.teachers = items;
+      });
   }
 }
