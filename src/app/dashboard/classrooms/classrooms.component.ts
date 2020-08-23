@@ -1,38 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IClassRoom } from '../../_Interfaces/classroom';
 @Component({
   selector: 'app-classrooms',
   templateUrl: './classrooms.component.html',
   styleUrls: ['./classrooms.component.scss'],
 })
 export class ClassroomsComponent implements OnInit {
-  classRooms = [
+  classRooms: IClassRoom[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Inglês para iniciantes',
-      startAt: '14:00',
-      endAt: '15:40',
+      startAt: 14,
+      endAt: 15,
+      ageRange: '',
       teacher: 'Joao',
-      studentQnt: 16,
+      teacherId: '',
     },
     {
-      id: 2,
+      id: '2',
       name: 'Álgebra Linear',
-      startAt: '18:00',
-      endAt: '19:40',
+      startAt: 18,
+      endAt: 19,
+      ageRange: '',
       teacher: 'Cecília',
-      studentQnt: 32,
+      teacherId: '',
     },
   ];
 
-  columnsToDisplay = [
-    'id',
-    'name',
-    'startAt',
-    'endAt',
-    'teacher',
-    'studentQnt',
-  ];
+  columnsToDisplay = ['id', 'name', 'startAt', 'endAt', 'teacher'];
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

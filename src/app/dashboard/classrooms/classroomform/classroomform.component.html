@@ -18,9 +18,12 @@
     <label>Faixa etária</label>
     <input [(ngModel)]="form.ageRange" type="text" name="ageRange" class="form-control" />
   </div>
-  <div class="form-group button-group">
+  <div *ngIf="!isLoading" class="form-group button-group">
     <button *ngIf="!isNew" type="submit" class="btn">Atualizar</button>
     <button *ngIf="!isNew" (click)="delete()" class="btn">Excluir</button>
     <button type="submit" class="btn">Registrar</button>
+  </div>
+  <div *ngIf="isLoading" class="form-group button-group">
+    <p>Porfavor aguarde...</p>
   </div>
 </form>

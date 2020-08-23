@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ClassRoom } from '../../_Interfaces/classroom';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +6,24 @@ import { ClassRoom } from '../../_Interfaces/classroom';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  classRooms: ClassRoom[] = [
+  classRooms = [
     {
       id: 1,
       name: 'Inglês para iniciantes',
-      startAt: '14:00',
-      endAt: '15:40',
+      startAt: 14,
+      endAt: 15,
+      ageRange: '',
       teacher: 'Joao',
-      studentQnt: 16,
+      teacherId: '',
     },
     {
       id: 2,
       name: 'Álgebra Linear',
-      startAt: '18:00',
-      endAt: '19:40',
+      startAt: 18,
+      endAt: 19,
+      ageRange: '',
       teacher: 'Cecília',
-      studentQnt: 32,
+      teacherId: '',
     },
   ];
   constructor() {}

@@ -1,8 +1,9 @@
-export interface ClassRoom {
-  id?: number;
+export interface IClassRoom {
+  id?: string;
   name: string;
-  startAt: string;
-  endAt: string;
+  startAt: number;
+  endAt: number;
+  ageRange: string;
   teacher: string;
-  studentQnt: number;
+  teacherId: string;
 }

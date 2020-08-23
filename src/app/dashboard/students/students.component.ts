@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+// Firebase
+import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-students',
@@ -33,7 +37,16 @@ export class StudentsComponent implements OnInit {
     'teacher',
     'studentQnt',
   ];
-  constructor() {}
+  constructor(
+    private api: ApiService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
+
+  navigate(link: string) {
+    console.log(link);
+    this.router.navigate([`${link}`]);
+  }
 }
