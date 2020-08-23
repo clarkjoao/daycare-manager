@@ -15,7 +15,7 @@ import { IStudents } from '../../_Interfaces/students';
 export class StudentsComponent implements OnInit {
   students: IStudents[] = [];
 
-  columnsToDisplay = ['id', 'name', 'age', 'responsable', 'classroom'];
+  columnsToDisplay = ['name', 'age', 'responsable', 'classroom'];
   constructor(
     private api: ApiService,
     private auth: AuthService,
@@ -34,10 +34,14 @@ export class StudentsComponent implements OnInit {
   getStudents() {
     this.api
       .getCollection('students')
-      .valueChanges()
-      .subscribe((items: any) => {
-        console.log(items);
-        this.students = items;
+      .snapshotChanges()
+      .forEach((items) => {
+        this.students = items.map((item) => {
+          const data = item.payload.doc.data();
+          const id = item.payload.doc.id;
+          return { id, ...data };
+        });
       });
+    console.log(this.students);
   }
 }

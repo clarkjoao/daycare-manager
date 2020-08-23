@@ -12,7 +12,7 @@ import { IClassRoom } from '../../_Interfaces/classroom';
 export class ClassroomsComponent implements OnInit {
   classRooms: IClassRoom[] = [];
 
-  columnsToDisplay = ['id', 'name', 'startAt', 'endAt', 'teacher'];
+  columnsToDisplay = ['name', 'startAt', 'endAt', 'teacher'];
   constructor(private router: Router, private api: ApiService) {}
 
   ngOnInit(): void {
@@ -27,9 +27,13 @@ export class ClassroomsComponent implements OnInit {
   getClassRoom() {
     this.api
       .getCollection('classrooms')
-      .valueChanges()
-      .subscribe((items: any) => {
-        this.classRooms = items;
+      .snapshotChanges()
+      .forEach((items) => {
+        this.classRooms = items.map((item) => {
+          const data = item.payload.doc.data();
+          const id = item.payload.doc.id;
+          return { id, ...data };
+        });
       });
   }
 }

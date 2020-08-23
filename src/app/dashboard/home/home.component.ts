@@ -17,9 +17,13 @@ export class HomeComponent implements OnInit {
   getClassRoom() {
     this.api
       .getCollection('classrooms')
-      .valueChanges()
-      .subscribe((items: any) => {
-        this.classRooms = items;
+      .snapshotChanges()
+      .forEach((items) => {
+        this.classRooms = items.map((item) => {
+          const data = item.payload.doc.data();
+          const id = item.payload.doc.id;
+          return { id, ...data };
+        });
       });
   }
 }

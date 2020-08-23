@@ -10,7 +10,7 @@ export class ClassroomListComponent implements OnInit {
   @Input()
   classRooms: IClassRoom[] = [];
 
-  columnsToDisplay = ['id', 'name', 'teacher'];
+  columnsToDisplay = ['name', 'teacher'];
 
   constructor() {}
 

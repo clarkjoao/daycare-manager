@@ -6,10 +6,6 @@
 </div>
 
 <table mat-table [dataSource]="classRooms" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.id }}</td>
-  </ng-container>
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nome</th>
