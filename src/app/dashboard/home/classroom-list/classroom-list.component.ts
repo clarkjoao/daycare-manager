@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IClassRoom } from '../../../_Interfaces/classroom';
 
 @Component({
   selector: 'app-classroom-list',
@@ -7,26 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ClassroomListComponent implements OnInit {
   @Input()
-  classRooms = [
-    {
-      id: 1,
-      name: 'Inglês para iniciantes',
-      startAt: '14:00',
-      endAt: '15:40',
-      teacher: 'Joao',
-      teacherId: '',
-    },
-    {
-      id: 2,
-      name: 'Álgebra Linear',
-      startAt: '18:00',
-      endAt: '19:40',
-      teacher: 'Cecília',
-      teacherId: '',
-    },
-  ];
+  classRooms: IClassRoom[] = [];
 
-  columnsToDisplay = ['id', 'name', 'startAt', 'endAt', 'teacher'];
+  columnsToDisplay = ['id', 'name', 'teacher'];
 
   constructor() {}
 

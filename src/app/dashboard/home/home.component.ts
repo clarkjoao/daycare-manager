@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IClassRoom } from '../../_Interfaces/classroom';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -6,27 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  classRooms = [
-    {
-      id: 1,
-      name: 'Inglês para iniciantes',
-      startAt: 14,
-      endAt: 15,
-      ageRange: '',
-      teacher: 'Joao',
-      teacherId: '',
-    },
-    {
-      id: 2,
-      name: 'Álgebra Linear',
-      startAt: 18,
-      endAt: 19,
-      ageRange: '',
-      teacher: 'Cecília',
-      teacherId: '',
-    },
-  ];
-  constructor() {}
+  classRooms: IClassRoom[] = [];
+  constructor(private api: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getClassRoom();
+  }
+  getClassRoom() {
+    this.api
+      .getCollection('classrooms')
+      .valueChanges()
+      .subscribe((items: any) => {
+        this.classRooms = items;
+      });
+  }
 }

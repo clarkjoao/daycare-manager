@@ -28,7 +28,9 @@ export class StudentsformComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getClass();
+  }
   onSubmit() {
     this.registerNewClass();
   }
@@ -37,7 +39,15 @@ export class StudentsformComponent implements OnInit {
     this.router.navigate([`${link}`]);
   }
 
-  getClass() {}
+  getClass() {
+    this.api
+      .getCollection('classrooms')
+      .valueChanges()
+      .subscribe((items: any) => {
+        console.log(items);
+        this.classrooms = items;
+      });
+  }
 
   registerNewClass() {
     this.isLoading = true;

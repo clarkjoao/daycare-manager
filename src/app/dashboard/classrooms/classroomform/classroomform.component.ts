@@ -20,7 +20,6 @@ export class ClassroomformComponent implements OnInit {
     teacher: '',
     teacherId: '',
   };
-
   teachers: Array<Object>;
 
   isNew: boolean = true;
@@ -42,10 +41,18 @@ export class ClassroomformComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.form);
     this.registerNewClass();
   }
 
-  getTeachers() {}
+  getTeachers() {
+    this.api
+      .getCollection('teachers')
+      .valueChanges()
+      .subscribe((items: any) => {
+        this.teachers = items;
+      });
+  }
 
   registerNewClass() {
     this.isLoading = true;

@@ -15,9 +15,9 @@
       <input [(ngModel)]="form.responsable" type="text" name="responsable" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Turma</label>
-      <select class="form-control" id="classromm">
-        <option *ngFor="let class of classrooms" [value]="class.id">{{class.name}}</option>
+      <label>Turma</label>
+      <select [(ngModel)]="form.classroom" class="form-control" id="classrooms">
+        <option *ngFor="let class of classrooms" [value]="class.name">{{class.name}}</option>
       </select>
     </div>
     <div *ngIf="!isLoading && !isNew" class="form-group button-group">
