@@ -5,35 +5,30 @@
   <button (click)="navigate('/dashboard/students/form')" class="btn">Nova Aluno</button>
 </div>
 
-<table mat-table [dataSource]="classRooms" class="mat-elevation-z8">
+<table mat-table [dataSource]="students" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.id }}</td>
+    <td mat-cell *matCellDef="let student">{{ student.id }}</td>
   </ng-container>
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nome</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.name }}</td>
+    <td mat-cell *matCellDef="let student">{{ student.name }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="startAt">
-    <th mat-header-cell *matHeaderCellDef>Horário de início</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.startAt }}</td>
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef>Faixa Etária</th>
+    <td mat-cell *matCellDef="let student">{{ student.age }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="endAt">
-    <th mat-header-cell *matHeaderCellDef>Horário de término</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.endAt }}</td>
+  <ng-container matColumnDef="responsable">
+    <th mat-header-cell *matHeaderCellDef>responsável</th>
+    <td mat-cell *matCellDef="let student">{{ student.responsable }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="teacher">
+  <ng-container matColumnDef="classroom">
     <th mat-header-cell *matHeaderCellDef>Professor</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.teacher }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="studentQnt">
-    <th mat-header-cell *matHeaderCellDef>Nº Alunos</th>
-    <td mat-cell *matCellDef="let classRoom">{{ classRoom.studentQnt }}</td>
+    <td mat-cell *matCellDef="let student">{{ student.classroom }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

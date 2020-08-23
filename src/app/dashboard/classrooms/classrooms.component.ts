@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// Firebase
+import { ApiService } from '../../services/api.service';
+
 import { IClassRoom } from '../../_Interfaces/classroom';
 @Component({
   selector: 'app-classrooms',
@@ -7,34 +10,26 @@ import { IClassRoom } from '../../_Interfaces/classroom';
   styleUrls: ['./classrooms.component.scss'],
 })
 export class ClassroomsComponent implements OnInit {
-  classRooms: IClassRoom[] = [
-    {
-      id: '1',
-      name: 'Inglês para iniciantes',
-      startAt: 14,
-      endAt: 15,
-      ageRange: '',
-      teacher: 'Joao',
-      teacherId: '',
-    },
-    {
-      id: '2',
-      name: 'Álgebra Linear',
-      startAt: 18,
-      endAt: 19,
-      ageRange: '',
-      teacher: 'Cecília',
-      teacherId: '',
-    },
-  ];
+  classRooms: IClassRoom[] = [];
 
   columnsToDisplay = ['id', 'name', 'startAt', 'endAt', 'teacher'];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private api: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getClassRoom();
+  }
 
   navigate(link: string) {
     console.log(link);
     this.router.navigate([`${link}`]);
+  }
+
+  getClassRoom() {
+    this.api
+      .getCollection('classrooms')
+      .valueChanges()
+      .subscribe((items: any) => {
+        this.classRooms = items;
+      });
   }
 }
