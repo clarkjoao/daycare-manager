@@ -21,7 +21,7 @@
       </select>
     </div>
     <div *ngIf="!isLoading && !isNew" class="form-group button-group">
-      <button type="submit" (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
+      <button (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
       <button type="submit" class="btn">Atualizar</button>
       <button (click)="delete()" class="btn">Excluir</button>
     </div>

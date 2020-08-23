@@ -42,6 +42,10 @@ const routes: Routes = [
         component: TeachersformComponent,
       },
       {
+        path: 'teachers/form/:id',
+        component: TeachersformComponent,
+      },
+      {
         path: 'classrooms',
         component: ClassroomsComponent,
       },
