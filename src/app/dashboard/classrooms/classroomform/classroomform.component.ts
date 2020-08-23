@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 // Firebase
 import { ApiService } from '../../../services/api.service';
 import { AuthService } from '../../../services/auth.service';
@@ -21,18 +21,25 @@ export class ClassroomformComponent implements OnInit {
     teacherId: '',
   };
   teachers: Array<Object>;
-
+  id: string = '';
   isNew: boolean = true;
 
   isLoading: boolean = false;
   constructor(
     private api: ApiService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getTeachers();
+    const routerIdParams = this.route.snapshot.paramMap.get('id');
+    if (routerIdParams !== null) {
+      this.isNew = false;
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.getDocument();
+    }
   }
 
   navigate(link: string) {
@@ -41,8 +48,11 @@ export class ClassroomformComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
-    this.registerNewClass();
+    if (this.isNew) {
+      this.registerNewClass();
+    } else {
+      this.updateClass();
+    }
   }
 
   getTeachers() {
@@ -54,6 +64,25 @@ export class ClassroomformComponent implements OnInit {
       });
   }
 
+  getDocument() {
+    this.api
+      .get('classrooms', this.id)
+      .valueChanges()
+      .subscribe((data: any) => {
+        if (data === undefined) {
+          this.isNew = true;
+        }
+        this.form = Object.assign(this.form, data);
+      });
+  }
+
+  delete(): void {
+    if (confirm('Deseja excluir a Turma?')) {
+      this.api.delete('classrooms', this.id);
+      this.router.navigate(['/dashboard/classrooms']);
+    }
+  }
+
   registerNewClass() {
     this.isLoading = true;
     this.api
@@ -61,7 +90,22 @@ export class ClassroomformComponent implements OnInit {
       .then(() => {
         alert('Turma Criada com Sucesso');
         this.isLoading = false;
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/classrooms']);
+      })
+      .catch(() => {
+        this.isLoading = false;
+        alert('error, tente novamente.');
+      });
+  }
+
+  updateClass() {
+    console.log('updateCLass');
+    this.api
+      .update('classrooms', this.id, this.form)
+      .then(() => {
+        this.isLoading = !this.isLoading;
+        alert('Turma Atualizada com Sucesso');
+        this.router.navigate(['/dashboard/classrooms']);
       })
       .catch(() => {
         this.isLoading = false;

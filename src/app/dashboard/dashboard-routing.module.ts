@@ -30,6 +30,10 @@ const routes: Routes = [
         component: StudentsformComponent,
       },
       {
+        path: 'students/form/:id',
+        component: StudentsformComponent,
+      },
+      {
         path: 'teachers',
         component: TeachersComponent,
       },
@@ -43,6 +47,10 @@ const routes: Routes = [
       },
       {
         path: 'classrooms/form',
+        component: ClassroomformComponent,
+      },
+      {
+        path: 'classrooms/form/:id',
         component: ClassroomformComponent,
       },
     ],
