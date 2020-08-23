@@ -32,6 +32,10 @@ export class StudentsformComponent implements OnInit {
   onSubmit() {
     this.registerNewClass();
   }
+  navigate(link: string) {
+    console.log(link);
+    this.router.navigate([`${link}`]);
+  }
 
   getClass() {}
 

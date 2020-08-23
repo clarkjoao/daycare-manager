@@ -20,9 +20,13 @@
         <option *ngFor="let class of classrooms" [value]="class.id">{{class.name}}</option>
       </select>
     </div>
-    <div *ngIf="!isLoading" class="form-group button-group">
-      <button *ngIf="!isNew" type="submit" class="btn">Atualizar</button>
-      <button *ngIf="!isNew" (click)="delete()" class="btn">Excluir</button>
+    <div *ngIf="!isLoading && !isNew" class="form-group button-group">
+      <button type="submit" (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
+      <button type="submit" class="btn">Atualizar</button>
+      <button (click)="delete()" class="btn">Excluir</button>
+    </div>
+    <div *ngIf="!isLoading && isNew" class="form-group button-group">
+      <button type="submit" (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
       <button type="submit" class="btn">Registrar</button>
     </div>
     <div *ngIf="isLoading" class="form-group button-group">

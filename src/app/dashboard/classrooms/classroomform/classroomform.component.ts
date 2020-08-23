@@ -36,6 +36,11 @@ export class ClassroomformComponent implements OnInit {
     this.getTeachers();
   }
 
+  navigate(link: string) {
+    console.log(link);
+    this.router.navigate([`${link}`]);
+  }
+
   onSubmit() {
     this.registerNewClass();
   }
