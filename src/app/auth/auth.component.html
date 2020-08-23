@@ -8,23 +8,26 @@
     </div>
     <div *ngIf="registerMode" class="form-group">
       <label>Nome Completo</label>
-      <input [(ngModel)]="form.name" type="text" name="name" class="form-control">
+      <input [(ngModel)]="form.name" type="text" name="name" class="form-control" />
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input [(ngModel)]="form.email" type="email" name="email" class="form-control">
+      <input [(ngModel)]="form.email" type="email" name="email" class="form-control" />
     </div>
     <div class="form-group">
       <label>Senha</label>
-      <input [(ngModel)]="form.password" type="password" name="password" class="form-control">
+      <input [(ngModel)]="form.password" type="password" name="password" class="form-control" />
     </div>
-    <div *ngIf="!registerMode" class="form-group button-group">
+    <div *ngIf="!registerMode && !isLoading" class="form-group button-group">
       <a (click)="registerMode = true">Registrar-se</a>
       <button type="submit" class="btn">Login</button>
     </div>
-    <div *ngIf="registerMode" class="form-group button-group">
+    <div *ngIf="registerMode && !isLoading" class="form-group button-group">
       <button type="submit" class="btn">Registrar</button>
       <a (click)="registerMode = false">Logar-se</a>
+    </div>
+    <div *ngIf="isLoading" class="form-group button-group">
+      <p>Porfavor aguarde...</p>
     </div>
   </form>
 </div>

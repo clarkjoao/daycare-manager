@@ -13,14 +13,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Providers
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthComponent } from './auth/auth.component';
-import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent],
@@ -34,11 +35,11 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    DashboardModule,
     SharedModule,
     BrowserAnimationsModule,
-    DashboardModule,
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

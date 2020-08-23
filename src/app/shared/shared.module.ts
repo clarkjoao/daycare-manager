@@ -6,20 +6,26 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MenuComponent } from './menu/menu.component';
+
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [MenuComponent],
-  imports: [CommonModule],
+  declarations: [ToolbarComponent],
+  imports: [CommonModule, MatToolbarModule],
   exports: [
     FormsModule,
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MenuComponent,
     MatToolbarModule,
+    MatIconModule,
+    MatTableModule,
+    ToolbarComponent,
   ],
 })
 export class SharedModule {}

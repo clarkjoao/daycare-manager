@@ -1,0 +1,35 @@
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form card shadow-lg o-hidden border-0 my-5">
+    <div class="form-group">
+      <h1>Novo Aluno</h1>
+    </div>
+    <div class="form-group">
+      <label>Nome Completo</label>
+      <input [(ngModel)]="form.name" type="text" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Idade</label>
+      <input [(ngModel)]="form.age" type="number" name="age" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Responsabel</label>
+      <input [(ngModel)]="form.responsable" type="text" name="responsable" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Turma</label>
+      <select (change)="saveSelect($event)" [(ngModel)]="form.classroom" class="form-control" id="classrooms">
+        <option *ngFor="let class of classrooms" [value]="class.name">{{class.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="!isLoading && !isNew" class="form-group button-group">
+      <button (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
+      <button type="submit" class="btn">Atualizar</button>
+      <button (click)="delete()" class="btn">Excluir</button>
+    </div>
+    <div *ngIf="!isLoading && isNew" class="form-group button-group">
+      <button (click)="navigate('/dashboard/students')" class="btn">Voltar</button>
+      <button type="submit" class="btn">Registrar</button>
+    </div>
+    <div *ngIf="isLoading" class="form-group button-group">
+      <p>Porfavor aguarde...</p>
+    </div>
+  </form>

@@ -14,19 +14,5 @@ export class AppComponent {
 
   constructor(private api: ApiService, private auth: AuthService) {}
 
-  ngOnInit() {
-    // this.auth
-    //   .create({
-    //     email: 'teste@none.com',
-    //     password: '123456',
-    //   })
-    //   .then((data: any) => {
-    //     console.log('sucess', data);
-    //     alert('success');
-    //   })
-    //   .catch((data: any) => {
-    //     console.log('error', data);
-    //     alert('error');
-    //   });
-  }
+  ngOnInit() {}
 }
