@@ -7,12 +7,12 @@
     <input [(ngModel)]="form.name" type="text" name="name" class="form-control" />
   </div>
   <div *ngIf="!isLoading && !isNew" class="form-group button-group">
-    <button type="submit" (click)="navigate('/dashboard/teachers')" class="btn">Voltar</button>
+    <button (click)="navigate('/dashboard/teachers')" class="btn">Voltar</button>
     <button type="submit" class="btn">Atualizar</button>
     <button (click)="delete()" class="btn">Excluir</button>
   </div>
   <div *ngIf="!isLoading && isNew" class="form-group button-group">
-    <button type="submit" (click)="navigate('/dashboard/teachers')" class="btn">Voltar</button>
+    <button (click)="navigate('/dashboard/teachers')" class="btn">Voltar</button>
     <button type="submit" class="btn">Registrar</button>
   </div>
   <div *ngIf="isLoading" class="form-group button-group">

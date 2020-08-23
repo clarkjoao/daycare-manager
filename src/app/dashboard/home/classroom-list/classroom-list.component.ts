@@ -14,8 +14,5 @@ export class ClassroomListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('instanciado');
-    console.log(this.classRooms);
-  }
+  ngOnInit(): void {}
 }

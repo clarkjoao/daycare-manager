@@ -43,7 +43,6 @@ export class ClassroomformComponent implements OnInit {
   }
 
   navigate(link: string) {
-    console.log(link);
     this.router.navigate([`${link}`]);
   }
 
@@ -53,6 +52,11 @@ export class ClassroomformComponent implements OnInit {
     } else {
       this.updateClass();
     }
+  }
+
+  saveSelect(event) {
+    let value = event.target.value;
+    this.form.teacher = value;
   }
 
   getTeachers() {
@@ -99,7 +103,6 @@ export class ClassroomformComponent implements OnInit {
   }
 
   updateClass() {
-    console.log('updateCLass');
     this.api
       .update('classrooms', this.id, this.form)
       .then(() => {

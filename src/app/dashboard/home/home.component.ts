@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
       .snapshotChanges()
       .forEach((items) => {
         this.classRooms = items.map((item) => {
-          const data = item.payload.doc.data();
-          const id = item.payload.doc.id;
+          const data: any = item.payload.doc.data();
+          const id: string = item.payload.doc.id;
           return { id, ...data };
         });
       });

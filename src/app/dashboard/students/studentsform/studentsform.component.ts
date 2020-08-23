@@ -45,8 +45,11 @@ export class StudentsformComponent implements OnInit {
       this.updateStudant();
     }
   }
+  saveSelect(event) {
+    let value = event.target.value;
+    this.form.classroom = value;
+  }
   navigate(link: string) {
-    console.log(link);
     this.router.navigate([`${link}`]);
   }
 
@@ -55,7 +58,6 @@ export class StudentsformComponent implements OnInit {
       .getCollection('classrooms')
       .valueChanges()
       .subscribe((items: any) => {
-        console.log(items);
         this.classrooms = items;
       });
   }

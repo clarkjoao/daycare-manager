@@ -11,7 +11,6 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {}
 
   navigate(link: string) {
-    console.log(link);
     this.router.navigate([`${link}`]);
   }
 }

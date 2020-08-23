@@ -42,7 +42,6 @@ export class TeachersformComponent implements OnInit {
     }
   }
   navigate(link: string) {
-    console.log(link);
     this.router.navigate([`${link}`]);
   }
 
@@ -59,7 +58,6 @@ export class TeachersformComponent implements OnInit {
   }
 
   delete(): void {
-    console.log(this.id, this.auth.currentUser.uid);
     if (this.id == this.auth.currentUser.uid) {
       alert('Voçê não pode fazer essa ação');
     }
