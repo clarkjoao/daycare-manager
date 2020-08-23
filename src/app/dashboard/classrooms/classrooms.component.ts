@@ -12,7 +12,7 @@ import { IClassRoom } from '../../_Interfaces/classroom';
 export class ClassroomsComponent implements OnInit {
   classRooms: IClassRoom[] = [];
 
-  columnsToDisplay = ['name', 'startAt', 'endAt', 'teacher'];
+  columnsToDisplay = ['name', 'startAt', 'endAt', 'ageRange', 'teacher'];
   constructor(private router: Router, private api: ApiService) {}
 
   ngOnInit(): void {
@@ -22,6 +22,10 @@ export class ClassroomsComponent implements OnInit {
   navigate(link: string) {
     console.log(link);
     this.router.navigate([`${link}`]);
+  }
+
+  getRecord(row) {
+    this.router.navigate([`/dashboard/classrooms/form/${row.id}`]);
   }
 
   getClassRoom() {

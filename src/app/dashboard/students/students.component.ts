@@ -31,6 +31,10 @@ export class StudentsComponent implements OnInit {
     this.router.navigate([`${link}`]);
   }
 
+  getRecord(row) {
+    this.router.navigate([`/dashboard/students/form/${row.id}`]);
+  }
+
   getStudents() {
     this.api
       .getCollection('students')

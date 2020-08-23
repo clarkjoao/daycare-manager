@@ -27,7 +27,9 @@ export class TeachersComponent implements OnInit {
     console.log(link);
     this.router.navigate([`${link}`]);
   }
-
+  getRecord(row) {
+    this.router.navigate([`/dashboard/teachers/form/${row.id}`]);
+  }
   getTeachers() {
     this.api
       .getCollection('teachers')
