@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Providers
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     BrowserAnimationsModule,
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

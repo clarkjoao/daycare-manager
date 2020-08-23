@@ -12,9 +12,9 @@ import {
 export class ApiService {
   constructor(private store: AngularFirestore) {}
 
-  getUsers(params?) {
+  getCollection(colletion, params?) {
     const data: AngularFirestoreCollection = this.store.collection(
-      'profiles',
+      colletion,
       (ref) => {
         let query: Query = ref;
 

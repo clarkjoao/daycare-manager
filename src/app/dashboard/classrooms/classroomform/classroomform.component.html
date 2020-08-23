@@ -1,0 +1,26 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form card shadow-lg o-hidden border-0 my-5">
+  <div class="form-group">
+    <h1>Nova Turma</h1>
+  </div>
+  <div class="form-group">
+    <label>Nome</label>
+    <input [(ngModel)]="form.name" type="text" name="name" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Inicio as:</label>
+    <input [(ngModel)]="form.startAt" type="number" name="startAT" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Termino as:</label>
+    <input [(ngModel)]="form.endAt" type="number" name="endAt" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Faixa etária</label>
+    <input [(ngModel)]="form.ageRange" type="text" name="ageRange" class="form-control" />
+  </div>
+  <div class="form-group button-group">
+    <button *ngIf="!isNew" type="submit" class="btn">Atualizar</button>
+    <button *ngIf="!isNew" (click)="delete()" class="btn">Excluir</button>
+    <button type="submit" class="btn">Registrar</button>
+  </div>
+</form>

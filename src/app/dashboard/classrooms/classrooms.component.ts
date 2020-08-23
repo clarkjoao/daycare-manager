@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-classrooms',
   templateUrl: './classrooms.component.html',
@@ -33,7 +33,12 @@ export class ClassroomsComponent implements OnInit {
     'teacher',
     'studentQnt',
   ];
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigate(link: string) {
+    console.log(link);
+    this.router.navigate([`${link}`]);
+  }
 }

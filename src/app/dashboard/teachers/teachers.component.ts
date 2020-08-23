@@ -36,4 +36,5 @@ export class TeachersComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  onSubmit() {}
 }

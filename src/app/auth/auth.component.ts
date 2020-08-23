@@ -40,14 +40,12 @@ export class AuthComponent implements OnInit {
         email: this.form.email,
         password: this.form.password,
       })
-      .then(async (data: any) => {
-        await this.api
-          .createDoc('teatchers', data.user.uid, this.form)
-          .then(() => {
-            setTimeout(() => {
-              this.router.navigate(['/dashboard']);
-            }, 1000);
-          });
+      .then((data: any) => {
+        this.api.createDoc('teachers', data.user.uid, this.form).then(() => {
+          setTimeout(() => {
+            this.router.navigate(['/dashboard']);
+          }, 1000);
+        });
       })
       .catch((err) => {
         alert(err.message);
